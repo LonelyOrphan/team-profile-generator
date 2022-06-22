@@ -2,10 +2,10 @@
 import fs from "fs";
 import inquirer from "inquirer";
 import generateHtml from "./utils/generateHtml.js";
-import Employee from "./lib/Employee";
-import Manager from "./lib/Manager";
-import Engineer from "./lib/Engineer";
-import Intern from "./lib/Intern";
+import Employee from "./lib/Employee.js";
+import Manager from "./lib/Manager.js";
+import Engineer from "./lib/Engineer.js";
+import Intern from "./lib/Intern.js";
 
 const home = () => {
   return inquirer.prompt([
@@ -33,31 +33,42 @@ const manager = () => {
     },
     {
       type: "input",
-      message: "Enter the manager's employee ID:",
+      message: "Enter the Manager's employee ID:",
       name: "managerId",
+    },
+    {
+      type: "input",
+      message: "Enter the Manager's email address:",
+      name: "managerEmail",
+    },
+    {
+      type: "input",
+      message: "Enter the Manager's office number:",
+      name: "officeNumber",
     },
   ]);
 };
 
 // Questions for user input
-const questions = () => {
-  home().then((choice) => {});
-};
+// const questions = () => {
+//   home().then((choice) => {
+//   });
+// };
 
 // Write to index.html file
-const saveWebpage = (data) => {
-  console.log(data);
-  fs.writeFile("index.html", data, function (err) {
-    if (err) throw err;
-    console.log("Webpage saved.");
-  });
-};
+// const saveWebpage = (data) => {
+//   console.log(data);
+//   fs.writeFile("index.html", data, function (err) {
+//     if (err) throw err;
+//     console.log("Webpage saved.");
+//   });
+// };
 
 // Initialise app
-function init() {
-  questions().then((answers) =>
-    generateHtml(answers).then((data) => saveWebpage(data))
-  );
-}
+// function init() {
+//   questions().then((answers) =>
+//     generateHtml(answers).then((data) => saveWebpage(data))
+//   );
+// }
 
-init();
+// init();
