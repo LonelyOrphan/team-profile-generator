@@ -5,5 +5,3 @@ export default function generateHtml(data) {
     `
   );
 }
-
-// module.exports = generateHtml;
