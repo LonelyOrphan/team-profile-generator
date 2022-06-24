@@ -3,10 +3,12 @@ export default function generateHtml(data) {
   // " " create engineer
   // " " create intern
   // loop over each object in the array
-  const cards = [];
+  const managerCards = [];
+  const engineerCards = [];
+  const internCards = [];
   for (let i = 0; i < data.length; i++) {
     if (data[i].hasOwnProperty("officeNumber")) {
-      cards.push(`<div class="col-3">
+      managerCards.push(`<div class="col-3">
       <div class="card mx-auto" style="width: 18rem">
         <div class="p-4">
           <img
@@ -30,7 +32,7 @@ export default function generateHtml(data) {
     </div>`);
     }
     if (data[i].hasOwnProperty("github")) {
-      cards.push(`<div class="col-3">
+      engineerCards.push(`<div class="col-3">
       <div class="card mx-auto" style="width: 18rem">
         <div class="p-4">
           <img
@@ -46,16 +48,70 @@ export default function generateHtml(data) {
             <li class="list-group-item">Employee ID: ${data[i].id}</li>
             <li class="list-group-item">Email: ${data[i].email}</li>
             <li class="list-group-item">
-              GitHub: <a href="#">${data[i].github}</a>
+              GitHub: <a href="https://github.com/${data[i].github}">${data[i].github}</a>
             </li>
           </ul>
         </div>
       </div>
-    </div>`)
+    </div>`);
+    }
+    if (data[i].hasOwnProperty("school")) {
+      internCards.push(`<div class="col-3">
+      <div class="card mx-auto" style="width: 18rem">
+        <div class="p-4">
+          <img
+            src="./img/education.png"
+            class="card-img-top img-thumbnail"
+            alt="university logo"
+          />
+        </div>
+        <div class="card-body">
+          <h5 class="card-title text-center">Sunita Natasha</h5>
+          <div class="card-header text-center">Intern</div>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">Employee ID: 12345</li>
+            <li class="list-group-item">Email: beddow90@gmail.com</li>
+            <li class="list-group-item">School: Computer School</li>
+          </ul>
+        </div>
+      </div>
+    </div>`);
+    }
   }
-  console.log(cards);
-}
+  return `<!DOCTYPE html>
+  <html lang="en">
+    <head>
+      <meta charset="UTF-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
+        crossorigin="anonymous"
+      />
+      <title>My Team</title>
+    </head>
+    <body>
+      <h1 class="text-center my-3">My Team</h1>
+  
+      <div class="row mt-5">
+        ${managerCards.join("")}
+      </div>
 
-// check what kind of object
-// generate html for that object
-// return full html with previous html inserted
+      <div class="row mt-5">
+        ${engineerCards.join("")}
+      </div>
+
+      <div class="row mt-5">
+        ${internCards.join("")}
+      </div>
+  
+      <script
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+        crossorigin="anonymous"
+      ></script>
+    </body>
+  </html>`;
+}
