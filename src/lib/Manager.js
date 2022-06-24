@@ -1,4 +1,5 @@
 import Employee from "./Employee.js";
+import inquirer from "inquirer";
 
 export default class Manager extends Employee {
   constructor(name, id, email, officeNumber) {
