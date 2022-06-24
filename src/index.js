@@ -159,10 +159,10 @@ const questions = () => {
 // Write to index.html file
 const saveWebpage = (data) => {
   generateHtml(data);
-  // fs.writeFile("index.html", generateHtml(data), function (err) {
-  //   if (err) throw err;
-  //   console.log("Webpage saved.");
-  // });
+  fs.writeFile("index.html", generateHtml(data), function (err) {
+    if (err) throw err;
+    console.log("Webpage saved.");
+  });
 };
 
 // Initialise app

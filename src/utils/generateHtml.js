@@ -1,8 +1,4 @@
 export default function generateHtml(data) {
-  // if arr[0] is a manager, create manager
-  // " " create engineer
-  // " " create intern
-  // loop over each object in the array
   const managerCards = [];
   const engineerCards = [];
   const internCards = [];
@@ -12,7 +8,7 @@ export default function generateHtml(data) {
       <div class="card mx-auto" style="width: 18rem">
         <div class="p-4">
           <img
-            src="./img/megaphone.png"
+            src="../dist/assets/img/megaphone.png"
             class="card-img-top img-thumbnail"
             alt="megaphone logo"
           />
@@ -36,7 +32,7 @@ export default function generateHtml(data) {
       <div class="card mx-auto" style="width: 18rem">
         <div class="p-4">
           <img
-            src="./img/keyboard.png"
+            src="../dist/assets/img/keyboard.png"
             class="card-img-top img-thumbnail"
             alt="keyboard logo"
           />
@@ -60,18 +56,18 @@ export default function generateHtml(data) {
       <div class="card mx-auto" style="width: 18rem">
         <div class="p-4">
           <img
-            src="./img/education.png"
+            src="../dist/assets/img/education.png"
             class="card-img-top img-thumbnail"
             alt="university logo"
           />
         </div>
         <div class="card-body">
-          <h5 class="card-title text-center">Sunita Natasha</h5>
+          <h5 class="card-title text-center">${data[i].name}</h5>
           <div class="card-header text-center">Intern</div>
           <ul class="list-group list-group-flush">
-            <li class="list-group-item">Employee ID: 12345</li>
-            <li class="list-group-item">Email: beddow90@gmail.com</li>
-            <li class="list-group-item">School: Computer School</li>
+            <li class="list-group-item">Employee ID: ${data[i].id}</li>
+            <li class="list-group-item">Email: ${data[i].email}</li>
+            <li class="list-group-item">School: ${data[i].school}</li>
           </ul>
         </div>
       </div>
@@ -95,15 +91,15 @@ export default function generateHtml(data) {
     <body>
       <h1 class="text-center my-3">My Team</h1>
   
-      <div class="row mt-5">
+      <div class="row mt-5 justify-content-center">
         ${managerCards.join("")}
       </div>
 
-      <div class="row mt-5">
+      <div class="row mt-5 justify-content-center">
         ${engineerCards.join("")}
       </div>
 
-      <div class="row mt-5">
+      <div class="row mt-5 justify-content-center">
         ${internCards.join("")}
       </div>
   
