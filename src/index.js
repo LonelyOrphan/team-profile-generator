@@ -172,8 +172,4 @@ const saveWebpage = (data) => {
 //   );
 // }
 
-function init() {
-  questions();
-}
-
-init();
+questions();

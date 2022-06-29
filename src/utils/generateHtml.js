@@ -18,7 +18,7 @@ export default function generateHtml(data) {
           <div class="card-header text-center">Manager</div>
           <ul class="list-group list-group-flush">
             <li class="list-group-item">Employee ID: ${data[i].id}</li>
-            <li class="list-group-item">Email: ${data[i].email}</li>
+            <li class="list-group-item">Email: <a href="mailto:${data[i].email}">Email: ${data[i].email}</a></li>
             <li class="list-group-item">
               Office Number: ${data[i].officeNumber}
             </li>
@@ -42,7 +42,7 @@ export default function generateHtml(data) {
           <div class="card-header text-center">Engineer</div>
           <ul class="list-group list-group-flush">
             <li class="list-group-item">Employee ID: ${data[i].id}</li>
-            <li class="list-group-item">Email: ${data[i].email}</li>
+            <li class="list-group-item">Email:<a href="mailto:${data[i].email}">Email: ${data[i].email}</a></li>
             <li class="list-group-item">
               GitHub: <a href="https://github.com/${data[i].github}">${data[i].github}</a>
             </li>
@@ -66,7 +66,7 @@ export default function generateHtml(data) {
           <div class="card-header text-center">Intern</div>
           <ul class="list-group list-group-flush">
             <li class="list-group-item">Employee ID: ${data[i].id}</li>
-            <li class="list-group-item">Email: ${data[i].email}</li>
+            <li class="list-group-item">Email: <a href="mailto:${data[i].email}">Email: ${data[i].email}</a></li>
             <li class="list-group-item">School: ${data[i].school}</li>
           </ul>
         </div>
